@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tab Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="tab-container">
+      <div class="tabs">
+        <button class="tab-link active" data-tab="tab1">Personal Info</button>
+        <button class="tab-link" data-tab="tab2">Contact Details</button>
+      </div>
+      <div class="tab-content">
+        <div id="tab1" class="tab-panel active">
+          <div class="form-container">
+            <h2>CDEC - Trainer Batch Update</h2>
+            <form id="dataForm">
+              <div class="form-group">
+                <label for="date">📅 Date</label>
+                <input type="date" id="date" name="date" required />
+              </div>
+              <div class="form-group">
+                <label for="trainerName">👨‍🏫 Trainer Name</label>
+                <input
+                  type="text"
+                  id="trainerName"
+                  name="trainerName"
+                  placeholder="Enter trainer's name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="batchName">📛 Batch Name</label>
+                <input
+                  type="text"
+                  id="batchName"
+                  name="batchName"
+                  placeholder="Enter batch name"
+                  required
+                />
+              </div>
+              <div class="form-group2">
+                <label for="batchMode">🔀 Batch Mode</label>
+                <select id="batchMode" name="batchMode" required>
+                  <option value="Online">Online</option>
+                  <option value="Offline">Offline</option>
+                  <option value="Hybrid">Hybrid</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="attendance">Attendance</label>
+                <input
+                  type="text"
+                  id="attendance"
+                  name="attendance"
+                  placeholder="e.g., 20/50"
+                  required
+                />
+              </div>
+              <div class="form-group2">
+                <label for="topic">📂 Select Topic</label>
+                <select id="topic" name="topic" required>
+                  <option value="">--Select Topic--</option>
+                  <option value="Linux">Linux</option>
+                  <option value="AWS">AWS</option>
+                  <option value="DevOps">DevOps</option>
+                </select>
+              </div>
+              <div class="form-group2">
+                <label for="mainTopic">📝 Main Topic</label>
+                <select id="mainTopic" name="mainTopic" required>
+                  <option value="">--Select Main Topic--</option>
+                </select>
+              </div>
+              <div class="">
+                <label> <b>📋 Subtopics</b></label>
+                <div id="subtopicCheckboxGroup" class="checkbox-group"></div>
+              </div>
+              <div class="form-group2">
+                <button type="button" id="whatsappShare"
+                  >Share on WhatsApp</button
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+        <div id="tab2" class="tab-panel">
+          <div class="form-container2">
+            <h2>Batch Cancellation Notice</h2>
+            <form id="cancellationForm">
+              <div class="form-group3">
+                <label for="dates">Date</label>
+                <input type="date" id="dates" required />
+              </div>
+              <div class="form-group3">
+                <label for="trainersName">Trainer Name</label>
+                <input
+                  type="text"
+                  id="trainersName"
+                  placeholder="Enter trainer's name"
+                  required
+                />
+              </div>
+              <div class="form-group3">
+                <label for="reason">Reason for Cancellation</label>
+                <textarea
+                  id="reason"
+                  placeholder="Enter the reason for cancellation"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group3">
+                <label for="batchCount">Number of Batches to Cancel</label>
+                <input
+                  type="number"
+                  id="batchCount"
+                  min="1"
+                  value="1"
+                  onchange="generateBatchFields()"
+                  required
+                />
+              </div>
+              <div id="batchFields" class="batch-fields"></div>
+              <div class="form-group3">
+                <button type="button" onclick="shareOnWhatsApp()"
+                  >Share on WhatsApp</button
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
